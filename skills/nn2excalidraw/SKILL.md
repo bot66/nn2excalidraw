@@ -6,6 +6,10 @@ description: >
   U-Net, Transformer, or other model structure, or export a model diagram to
   .excalidraw or Obsidian Excalidraw. The layout is computed from a graph IR,
   not drawn by inventing coordinates.
+license: MIT
+metadata:
+  version: "0.1.0"
+  category: visualization
 ---
 
 # nn2excalidraw
@@ -24,26 +28,26 @@ Do not use it for training, export to ONNX, or weight conversion.
 
 ## Setup
 
-From the repo root:
+This file is the only skill. Install it with the tool-specific steps in the
+repo README and the per-tool guides. Do not copy `SKILL.md` into editor skill
+folders by hand.
+
+- Claude Code: `README.md` (plugin marketplace)
+- Cursor: `.cursor-plugin/INSTALL.md` (skills path is the repo's `skills/` directory)
+- Codex: `.codex/INSTALL.md`
+- OpenCode: `.opencode/INSTALL.md`
+
+The skill runs the `nn2excalidraw` CLI. From the clone root, install it before
+the first diagram:
 
 ```bash
-pip install -e ".[dev]"
+pip install -e ".[dev]"          # static parser and CLI
+pip install -e ".[trace,dev]"    # plus PyTorch tracing
 ```
 
-Add `pip install -e ".[trace,dev]"` when the file should be imported and traced
-with PyTorch. Static mode does not need torch. No GPU, network, or pretrained
-weights are required.
-
-The skill ships in this repo at:
-
-- `skills/nn2excalidraw/SKILL.md` (canonical)
-- `.agents/skills/nn2excalidraw/SKILL.md`
-- `.cursor/skills/nn2excalidraw/SKILL.md`
-- `.codex/skills/nn2excalidraw/SKILL.md`
-- `.claude/skills/nn2excalidraw/SKILL.md`
-
-Clone the repo and point the agent at it. Copy `skills/nn2excalidraw` into the
-user skill directory only if the tool does not read project skills.
+Static mode does not need torch. No GPU, network, or pretrained weights are
+required. The repository is private: clone and marketplace install need GitHub
+access (HTTPS credentials or SSH). Do not paste tokens into the repo or the chat.
 
 ## Inputs
 

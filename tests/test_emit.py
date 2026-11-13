@@ -101,17 +101,20 @@ def test_ttb_direction_still_emits():
     ).scene
 
 
-def test_skill_copies_match():
-    canonical = (ROOT / "skills" / "nn2excalidraw" / "SKILL.md").read_text(encoding="utf-8")
-    assert canonical.startswith("---\n")
-    assert "name: nn2excalidraw" in canonical.split("---", 2)[1]
+def test_skill_lives_only_under_skills():
+    canonical = ROOT / "skills" / "nn2excalidraw" / "SKILL.md"
+    found = sorted(ROOT.rglob("SKILL.md"))
+    assert found == [canonical]
+    text = canonical.read_text(encoding="utf-8")
+    assert text.startswith("---\n")
+    assert "name: nn2excalidraw" in text.split("---", 2)[1]
     for relative in (
         ".agents/skills/nn2excalidraw/SKILL.md",
         ".cursor/skills/nn2excalidraw/SKILL.md",
         ".codex/skills/nn2excalidraw/SKILL.md",
         ".claude/skills/nn2excalidraw/SKILL.md",
     ):
-        assert (ROOT / relative).read_text(encoding="utf-8") == canonical
+        assert not (ROOT / relative).exists()
 
 
 def test_checked_in_hero_fixtures_match():

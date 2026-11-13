@@ -1,5 +1,7 @@
 # nn2excalidraw
 
+[中文版](./README_zh.md)
+
 Turn a PyTorch `nn.Module` into a deterministic Excalidraw architecture diagram.
 
 You pick the entry class and the detail level. A layout engine places every
@@ -43,16 +45,6 @@ Checked-in copies, including Obsidian wrappers:
 `[2, 2, 2, 2]`, widths 64-128-256-512). `examples/vit_b_16.py` is the
 torchvision `vit_b_16` topology (patch 16, hidden 768, MLP 3072, 12 heads,
 12 blocks, class token). Both are defined in-repo so nothing is downloaded.
-
-## Install
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"            # library, CLI, tests. Static parser only.
-pip install -e ".[trace,dev]"      # plus PyTorch, to import and trace the module
-```
-
-Python 3.10+. Torch is optional. Tracing uses CPU and one dummy forward.
 
 ## CLI
 
@@ -114,23 +106,71 @@ Other examples used by the tests: `examples/mlp.py`, `examples/sequential_cnn.py
 The color and layout rules are in [docs/visual-language.md](docs/visual-language.md).
 Pipeline and the static-Python subset are in [docs/architecture.md](docs/architecture.md).
 
-## Use it from another agent
+## Installation
 
-The recipe is a standard Agent Skill (`name` + `description` in YAML, then the
-steps). It tells the agent to run this CLI or the Python API. It does not
-depend on a particular editor, bot, or connector.
+This repository is **private**. `git clone` and `claude plugin marketplace add` need access to <https://github.com/bot66/nn2excalidraw> (HTTPS with your GitHub credentials, or SSH). Do not paste tokens into the repo, the shell history you share, or chat.
 
-| Location | Who reads it |
-| --- | --- |
-| `skills/nn2excalidraw/SKILL.md` | Canonical copy |
-| `.agents/skills/nn2excalidraw/SKILL.md` | Shared project skills (Cursor, Codex, Claude Code) |
-| `.cursor/skills/nn2excalidraw/SKILL.md` | Cursor |
-| `.codex/skills/nn2excalidraw/SKILL.md` | Codex |
-| `.claude/skills/nn2excalidraw/SKILL.md` | Claude Code |
+Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone with `-b cursor/nn2excalidraw-v1-c1e1`. After it lands on `main`, drop `-b`.
 
-Clone the repo. If your agent only loads user-level skills, copy the
-`skills/nn2excalidraw` directory into that agent's skill folder. Then ask it
-to diagram a file; the skill's first commands are the two above.
+The only skill file is [`skills/nn2excalidraw/SKILL.md`](skills/nn2excalidraw/SKILL.md). Tools should point at the `skills/` directory. The skill runs the `nn2excalidraw` command, so install the CLI from the clone root as well (see below).
+
+### Claude Code
+
+`claude plugin marketplace add` reads the default branch. It picks up this skill after the PR is merged. Until then, clone the branch with the Cursor, Codex, or OpenCode steps.
+
+```bash
+claude plugin marketplace add https://github.com/bot66/nn2excalidraw
+claude plugin install nn2excalidraw
+```
+
+Manifests: [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json), [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json).
+
+### Cursor
+
+```bash
+git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.cursor/nn2excalidraw
+```
+
+Point Cursor's skills path at `~/.cursor/nn2excalidraw/skills/`.
+
+Windows setup, verification, update, and uninstall: [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md).
+
+### Codex
+
+```bash
+git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.codex/nn2excalidraw
+mkdir -p ~/.agents/skills
+ln -s ~/.codex/nn2excalidraw/skills ~/.agents/skills/nn2excalidraw
+```
+
+Restart Codex. Windows instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md).
+
+### OpenCode
+
+```bash
+git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.nn2excalidraw
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalidraw
+```
+
+Restart OpenCode. Details: [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
+
+### Python package (CLI)
+
+From the clone root (`~/.cursor/nn2excalidraw`, `~/.codex/nn2excalidraw`, or `~/.nn2excalidraw`):
+
+```bash
+pip install -e ".[dev]"          # static parser and CLI
+pip install -e ".[trace,dev]"    # plus PyTorch tracing
+```
+
+Python 3.10+. Torch is optional. Tracing uses CPU and one dummy forward. Without this install, the agent can see the skill and still fail to run `nn2excalidraw`.
+
+### VS Code
+
+This repository does not ship a VS Code extension.
+
+In the integrated terminal, use Codex, Claude Code, or OpenCode. For a local skills path from this repo, use Cursor and [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md).
 
 ## Tests
 

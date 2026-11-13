@@ -44,8 +44,17 @@ Colors, type, and gaps belong in `src/nn2excalidraw/theme.py`. Update
 `docs/visual-language.md` in the same change. Layout must stay a pure function
 of the IR: no randomness, no clocks.
 
-## Skill copies
+## Skill and install manifests
 
-`skills/nn2excalidraw/SKILL.md` is canonical. The same file is copied to
-`.agents/skills/`, `.cursor/skills/`, `.codex/skills/`, and `.claude/skills/`
-so Cursor, Codex, and Claude Code discover it. Keep those copies identical.
+`skills/nn2excalidraw/SKILL.md` is the only skill file. Do not copy it under
+`.cursor/`, `.codex/`, `.claude/`, or `.agents/`.
+
+Install manifests live next to the tool they serve:
+
+- `.claude-plugin/` — Claude Code marketplace and plugin JSON
+- `.cursor-plugin/` — Cursor `plugin.json` and `INSTALL.md`
+- `.codex/INSTALL.md` — Codex clone and symlink steps
+- `.opencode/INSTALL.md` — OpenCode symlink steps
+
+Discovery is "point the tool at `skills/`", not a second copy of `SKILL.md`
+inside the repo.
