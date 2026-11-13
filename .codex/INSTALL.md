@@ -2,10 +2,6 @@
 
 Enable the skill in Codex via native skill discovery. Clone the repo and symlink its `skills` directory into `~/.agents/skills`.
 
-This repository is private. Clone it with GitHub access (HTTPS credentials or SSH). Do not paste tokens into the repo or into chat.
-
-Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone with `-b cursor/nn2excalidraw-v1-c1e1`. After it lands on `main`, drop `-b`.
-
 ## Prerequisites
 
 - Git
@@ -18,7 +14,7 @@ Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone wi
 1. **Clone the repository:**
 
    ```bash
-   git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.codex/nn2excalidraw
+   git clone https://github.com/bot66/nn2excalidraw.git ~/.codex/nn2excalidraw
    ```
 
 2. **Create the skills symlink:**
@@ -45,7 +41,7 @@ Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone wi
 ### Windows (PowerShell)
 
 ```powershell
-git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.codex\nn2excalidraw"
+git clone https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.codex\nn2excalidraw"
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
 cmd /c mklink /J "$env:USERPROFILE\.agents\skills\nn2excalidraw" "$env:USERPROFILE\.codex\nn2excalidraw\skills"
 pip install -e "$env:USERPROFILE\.codex\nn2excalidraw[dev]"
@@ -91,7 +87,7 @@ You should see a junction pointing at the clone's `skills` directory.
 cd ~/.codex/nn2excalidraw && git pull
 ```
 
-While the skill is only on `cursor/nn2excalidraw-v1-c1e1`, pull that branch. After merge, check out `main` and pull. The symlink follows the clone, so you do not re-link.
+The symlink follows the clone, so you do not re-link.
 
 ### Windows (PowerShell)
 

@@ -2,10 +2,6 @@
 
 Enable the skill in Cursor by cloning the repository locally and pointing Cursor's skills path at the `skills/` directory.
 
-This repository is private. Clone it with GitHub access (HTTPS credentials or SSH). Do not paste tokens into the repo or into chat.
-
-Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone with `-b cursor/nn2excalidraw-v1-c1e1`. After it lands on `main`, drop `-b`.
-
 The skill runs the `nn2excalidraw` CLI. Install that from the clone root after the clone (see below).
 
 ## Prerequisites
@@ -19,7 +15,7 @@ The skill runs the `nn2excalidraw` CLI. Install that from the clone root after t
 ### macOS / Linux
 
 ```bash
-git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.cursor/nn2excalidraw
+git clone https://github.com/bot66/nn2excalidraw.git ~/.cursor/nn2excalidraw
 pip install -e "$HOME/.cursor/nn2excalidraw[dev]"
 ```
 
@@ -38,7 +34,7 @@ Set Cursor's skills path to:
 ### Windows (PowerShell)
 
 ```powershell
-git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.cursor\nn2excalidraw"
+git clone https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.cursor\nn2excalidraw"
 pip install -e "$env:USERPROFILE\.cursor\nn2excalidraw[dev]"
 ```
 
@@ -85,8 +81,6 @@ nn2excalidraw --help
 ```bash
 cd ~/.cursor/nn2excalidraw && git pull
 ```
-
-While the skill is only on `cursor/nn2excalidraw-v1-c1e1`, pull that branch (`git pull origin cursor/nn2excalidraw-v1-c1e1`). After merge, `git checkout main` and `git pull`.
 
 ### Windows (PowerShell)
 

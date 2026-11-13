@@ -6,6 +6,7 @@ This is a preview, not a second diagram format. The .excalidraw file is the sour
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -94,13 +95,21 @@ def _quad(p0: tuple[float, float], p1: tuple[float, float], p2: tuple[float, flo
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("path")
+    parser.add_argument("path", nargs="?")
+    parser.add_argument("--scene", help="Rasterize this existing .excalidraw file instead of rebuilding a model")
     parser.add_argument("-o", "--output", required=True)
     parser.add_argument("--class", dest="class_name")
     parser.add_argument("--input-shape")
     parser.add_argument("--scale", type=float, default=0.45)
     parser.add_argument("--mode", default="static")
     args = parser.parse_args()
+    if args.scene:
+        scene = json.loads(Path(args.scene).read_text(encoding="utf-8"))
+        render(scene, Path(args.output), scale=args.scale)
+        print(args.output)
+        return
+    if not args.path:
+        parser.error("pass a model path or --scene")
     diagram = diagram_from_path(
         args.path,
         class_name=args.class_name,

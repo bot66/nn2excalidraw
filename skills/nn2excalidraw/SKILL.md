@@ -46,8 +46,7 @@ pip install -e ".[trace,dev]"    # plus PyTorch tracing
 ```
 
 Static mode does not need torch. No GPU, network, or pretrained weights are
-required. The repository is private: clone and marketplace install need GitHub
-access (HTTPS credentials or SSH). Do not paste tokens into the repo or the chat.
+required.
 
 ## Inputs
 
@@ -153,3 +152,16 @@ Add `--dump-ir` to print nodes, edges, and groups.
 
 Read `docs/visual-language.md` before changing colors or layout. The engine,
 not the chat model, owns coordinates.
+
+## Limits
+
+- PyTorch only.
+- Static parsing covers ordinary model code (`__init__` builders, `Sequential`,
+  residual adds, `torch.cat`, reshape/permute). If the constructor is too
+  dynamic, use `--mode trace`.
+- Four or more identical siblings collapse to one card with a `× N` label.
+  ResNet-18 stages have two blocks, so both are drawn.
+- In the default block view, BatchNorm and activations inside a block are not
+  separate boxes. `--detail full` shows them.
+- Checked-in references: `examples/outputs/resnet18.excalidraw` and
+  `examples/outputs/vit_b_16.excalidraw` (plus the `.excalidraw.md` wrappers).

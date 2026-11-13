@@ -1,9 +1,5 @@
 # Installing nn2excalidraw for OpenCode
 
-This repository is private. Clone it with GitHub access (HTTPS credentials or SSH). Do not paste tokens into the repo or into chat.
-
-Until [PR #1](https://github.com/bot66/nn2excalidraw/pull/1) is merged, clone with `-b cursor/nn2excalidraw-v1-c1e1`. After it lands on `main`, drop `-b`.
-
 There is one skill. Symlink `skills/nn2excalidraw` to `~/.config/opencode/skills/nn2excalidraw`.
 
 ## Prerequisites
@@ -16,7 +12,7 @@ There is one skill. Symlink `skills/nn2excalidraw` to `~/.config/opencode/skills
 ### macOS / Linux
 
 ```bash
-git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git ~/.nn2excalidraw
+git clone https://github.com/bot66/nn2excalidraw.git ~/.nn2excalidraw
 
 mkdir -p ~/.config/opencode/skills
 ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalidraw
@@ -33,7 +29,7 @@ pip install -e "$HOME/.nn2excalidraw[trace,dev]"
 ### Windows (PowerShell)
 
 ```powershell
-git clone -b cursor/nn2excalidraw-v1-c1e1 https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.nn2excalidraw"
+git clone https://github.com/bot66/nn2excalidraw.git "$env:USERPROFILE\.nn2excalidraw"
 
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skills"
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\opencode\skills\nn2excalidraw" -Target "$env:USERPROFILE\.nn2excalidraw\skills\nn2excalidraw"
@@ -57,7 +53,7 @@ Verify by asking: "List available skills". `nn2excalidraw --help` should also ru
 cd ~/.nn2excalidraw && git pull
 ```
 
-The symlink keeps pointing at the clone. While the skill is only on `cursor/nn2excalidraw-v1-c1e1`, pull that branch. After merge, check out `main` and pull.
+The symlink keeps pointing at the clone. You do not need to re-link.
 
 ## Uninstalling
 
@@ -86,4 +82,4 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\.nn2excalidraw"
 
 ## Getting help
 
-- Issues: <https://github.com/bot66/nn2excalidraw/issues> (repository access required)
+- Issues: <https://github.com/bot66/nn2excalidraw/issues>
