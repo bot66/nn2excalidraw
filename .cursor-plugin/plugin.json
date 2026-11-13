@@ -1,0 +1,14 @@
+{
+  "name": "nn2excalidraw",
+  "displayName": "nn2excalidraw",
+  "description": "Turn a PyTorch nn.Module into a deterministic Excalidraw architecture diagram",
+  "version": "0.1.0",
+  "author": {
+    "name": "bot66"
+  },
+  "homepage": "https://github.com/bot66/nn2excalidraw",
+  "repository": "https://github.com/bot66/nn2excalidraw",
+  "license": "MIT",
+  "keywords": ["skills", "pytorch", "excalidraw", "neural-network", "diagram", "resnet", "vit"],
+  "skills": "./skills/"
+}
