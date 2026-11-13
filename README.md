@@ -66,6 +66,18 @@ ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalid
 
 Restart OpenCode to discover the skill. See [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
 
+## Usage
+
+Talk to the agent in natural language. A repository URL plus the variant or class name, and a request to save as Excalidraw, is enough:
+
+```
+画出 https://github.com/ultralytics/yolov5 中 yolov5s的模型结构图，保存为excalidraw格式
+```
+
+Same ask in English: draw the YOLOv5s architecture from https://github.com/ultralytics/yolov5 and save it as Excalidraw.
+
+![YOLOv5s](examples/outputs/yolov5s.png)
+
 ## License
 
 [MIT](./LICENSE).

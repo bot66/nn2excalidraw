@@ -66,6 +66,16 @@ ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalid
 
 重启 OpenCode 以发现技能。详见 [`.opencode/INSTALL.md`](.opencode/INSTALL.md)。
 
+## 使用
+
+用自然语言跟智能体说。给出仓库地址和变体名或类名，并要求保存为 Excalidraw，就够了：
+
+```
+画出 https://github.com/ultralytics/yolov5 中 yolov5s的模型结构图，保存为excalidraw格式
+```
+
+![YOLOv5s](examples/outputs/yolov5s.png)
+
 ## 许可证
 
 [MIT](./LICENSE)。
