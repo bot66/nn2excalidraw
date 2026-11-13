@@ -66,10 +66,6 @@ ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalid
 
 重启 OpenCode 以发现技能。详见 [`.opencode/INSTALL.md`](.opencode/INSTALL.md)。
 
-### VS Code
-
-本仓库不提供 VS Code 扩展。在集成终端里使用 Codex、Claude Code 或 OpenCode。若要配置本地 skills 路径，用 Cursor，并参考 [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md)。
-
 ## 许可证
 
-[MIT](./LICENSE)。附带的 yuelfei 深度学习库同样是 MIT，见 [assets/ATTRIBUTION.md](assets/ATTRIBUTION.md)。
+[MIT](./LICENSE)。

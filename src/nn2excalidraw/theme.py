@@ -1,8 +1,6 @@
 """Fixed visual language. Emitters must not invent colors outside this table.
 
-Adapted from the Open Color swatches used by the yuelfei deep-learning
-Excalidraw library (MIT), redrawn as clean engineering stencils rather than
-the original hand-drawn assemblies. See ``docs/visual-language.md``.
+See ``docs/visual-language.md``.
 """
 
 from __future__ import annotations

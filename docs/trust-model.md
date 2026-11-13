@@ -35,6 +35,4 @@ file matches the supported subset. The examples in this repository do.
 - It does not call `torch.hub`, `torchvision` weight enums, or `timm.create_model`
   unless that call is in the file you passed.
 - It does not need a GPU, CUDA, or a network connection.
-- The Excalidraw emitter does not contact excalidraw.com or
-  libraries.excalidraw.com. Vendored library JSON under `assets/` is reference
-  material only.
+- The Excalidraw emitter does not contact excalidraw.com at runtime.

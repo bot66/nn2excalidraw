@@ -104,12 +104,3 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\.cursor\nn2excalidraw"
 ```
 
 Remove the skills path from Cursor settings if you added it by hand.
-
-## VS Code Note
-
-This repository does not currently ship a standalone VS Code extension.
-
-If you use VS Code, the recommended options are:
-
-- run a supported CLI tool such as Codex, Claude Code, or OpenCode inside the VS Code integrated terminal
-- use Cursor if you want native local-skills configuration from this repository

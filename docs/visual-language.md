@@ -5,9 +5,7 @@ spacing below are fixed. Do not invent coordinates or pick new colors in a
 prompt. The implementation lives in `src/nn2excalidraw/theme.py`,
 `layout.py`, and `emit.py`.
 
-The palette is adapted from the yuelfei deep-learning Excalidraw library
-(MIT). See `assets/ATTRIBUTION.md`. Cards are clean engineering stencils
-(Helvetica, `roughness: 0`, solid fill), not the original hand-drawn assemblies.
+Cards are clean engineering stencils (Helvetica, `roughness: 0`, solid fill).
 
 ## Layout
 

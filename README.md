@@ -66,10 +66,6 @@ ln -s ~/.nn2excalidraw/skills/nn2excalidraw ~/.config/opencode/skills/nn2excalid
 
 Restart OpenCode to discover the skill. See [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
 
-### VS Code
-
-This repository does not ship a VS Code extension. In the integrated terminal, use Codex, Claude Code, or OpenCode. For a local skills path, use Cursor and [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md).
-
 ## License
 
-[MIT](./LICENSE). The vendored yuelfei deep-learning library is also MIT; see [assets/ATTRIBUTION.md](assets/ATTRIBUTION.md).
+[MIT](./LICENSE).
