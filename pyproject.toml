@@ -1,0 +1,28 @@
+[project]
+name = "nn2excalidraw"
+version = "0.1.0"
+description = "Turn PyTorch nn.Module code into deterministic Excalidraw architecture diagrams."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "nn2excalidraw contributors" }]
+keywords = ["pytorch", "excalidraw", "neural-network", "diagram"]
+dependencies = []
+
+[project.optional-dependencies]
+trace = ["torch>=2.2"]
+dev = ["pytest>=8.0", "pillow>=10.0"]
+
+[project.scripts]
+nn2excalidraw = "nn2excalidraw.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
